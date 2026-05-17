@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "dgSpecHash": "nQpr39To4yE=",
+  "success": true,
+  "projectFilePath": "S:\\work\\sigilus2\\src\\Sigilus.Detection.Llm\\Sigilus.Detection.Llm.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Casa\\.nuget\\packages\\communitytoolkit.highperformance\\8.4.2\\communitytoolkit.highperformance.8.4.2.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\llamasharp\\0.27.0\\llamasharp.0.27.0.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\llamasharp.backend.cpu\\0.27.0\\llamasharp.backend.cpu.0.27.0.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\10.0.5\\microsoft.bcl.asyncinterfaces.10.0.5.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\microsoft.bcl.memory\\10.0.5\\microsoft.bcl.memory.10.0.5.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\microsoft.extensions.ai.abstractions\\10.4.1\\microsoft.extensions.ai.abstractions.10.4.1.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.5\\microsoft.extensions.dependencyinjection.abstractions.10.0.5.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.5\\microsoft.extensions.logging.abstractions.10.0.5.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.27\\microsoft.net.illink.tasks.8.0.27.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\system.diagnostics.diagnosticsource\\10.0.5\\system.diagnostics.diagnosticsource.10.0.5.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\system.interactive.async\\7.0.0\\system.interactive.async.7.0.0.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\system.io.pipelines\\10.0.4\\system.io.pipelines.10.0.4.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\system.linq.async\\7.0.0\\system.linq.async.7.0.0.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\system.linq.asyncenumerable\\10.0.2\\system.linq.asyncenumerable.10.0.2.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\system.numerics.tensors\\10.0.5\\system.numerics.tensors.10.0.5.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\system.text.encodings.web\\10.0.4\\system.text.encodings.web.10.0.4.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\system.text.json\\10.0.4\\system.text.json.10.0.4.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.27\\microsoft.netcore.app.runtime.win-x64.8.0.27.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.27\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.27.nupkg.sha512",
+    "C:\\Users\\Casa\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.27\\microsoft.aspnetcore.app.runtime.win-x64.8.0.27.nupkg.sha512"
+  ],
+  "logs": []
+}

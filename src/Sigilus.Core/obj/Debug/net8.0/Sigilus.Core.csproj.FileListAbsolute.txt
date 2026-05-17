@@ -1,0 +1,11 @@
+S:\work\sigilus2\src\Sigilus.Core\bin\Debug\net8.0\Sigilus.Core.deps.json
+S:\work\sigilus2\src\Sigilus.Core\bin\Debug\net8.0\Sigilus.Core.dll
+S:\work\sigilus2\src\Sigilus.Core\bin\Debug\net8.0\Sigilus.Core.pdb
+S:\work\sigilus2\src\Sigilus.Core\obj\Debug\net8.0\Sigilus.Core.GeneratedMSBuildEditorConfig.editorconfig
+S:\work\sigilus2\src\Sigilus.Core\obj\Debug\net8.0\Sigilus.Core.AssemblyInfoInputs.cache
+S:\work\sigilus2\src\Sigilus.Core\obj\Debug\net8.0\Sigilus.Core.AssemblyInfo.cs
+S:\work\sigilus2\src\Sigilus.Core\obj\Debug\net8.0\Sigilus.Core.csproj.CoreCompileInputs.cache
+S:\work\sigilus2\src\Sigilus.Core\obj\Debug\net8.0\Sigilus.Core.dll
+S:\work\sigilus2\src\Sigilus.Core\obj\Debug\net8.0\refint\Sigilus.Core.dll
+S:\work\sigilus2\src\Sigilus.Core\obj\Debug\net8.0\Sigilus.Core.pdb
+S:\work\sigilus2\src\Sigilus.Core\obj\Debug\net8.0\ref\Sigilus.Core.dll

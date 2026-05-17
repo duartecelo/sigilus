@@ -1,0 +1,17 @@
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\bin\Release\net8.0\Sigilus.Detection.Onnx.deps.json
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\bin\Release\net8.0\Sigilus.Detection.Onnx.dll
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\bin\Release\net8.0\Sigilus.Detection.Onnx.pdb
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\bin\Release\net8.0\Sigilus.Core.dll
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\bin\Release\net8.0\Sigilus.Detection.dll
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\bin\Release\net8.0\Sigilus.Core.pdb
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\bin\Release\net8.0\Sigilus.Detection.pdb
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\obj\Release\net8.0\Sigilus.Detection.Onnx.csproj.AssemblyReference.cache
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\obj\Release\net8.0\Sigilus.Detection.Onnx.GeneratedMSBuildEditorConfig.editorconfig
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\obj\Release\net8.0\Sigilus.Detection.Onnx.AssemblyInfoInputs.cache
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\obj\Release\net8.0\Sigilus.Detection.Onnx.AssemblyInfo.cs
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\obj\Release\net8.0\Sigilus.Detection.Onnx.csproj.CoreCompileInputs.cache
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\obj\Release\net8.0\Sigilus..CBE94C2A.Up2Date
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\obj\Release\net8.0\Sigilus.Detection.Onnx.dll
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\obj\Release\net8.0\refint\Sigilus.Detection.Onnx.dll
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\obj\Release\net8.0\Sigilus.Detection.Onnx.pdb
+S:\work\sigilus2\src\Sigilus.Detection.Onnx\obj\Release\net8.0\ref\Sigilus.Detection.Onnx.dll

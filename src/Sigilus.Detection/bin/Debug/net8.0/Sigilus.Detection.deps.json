@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Sigilus.Detection/1.0.0": {
+        "dependencies": {
+          "Sigilus.Core": "1.0.0"
+        },
+        "runtime": {
+          "Sigilus.Detection.dll": {}
+        }
+      },
+      "Sigilus.Core/1.0.0": {
+        "runtime": {
+          "Sigilus.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Sigilus.Detection/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Sigilus.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>Sigilus</AssemblyName>
+    <ApplicationIcon></ApplicationIcon>
+  </PropertyGroup>
+
+  <!-- Publish single-file: usado por `dotnet publish -c Release`.
+       Embute o .NET 8 runtime + todas as DLLs num único Sigilus.exe.
+       Bibliotecas nativas (SkiaSharp, llama.cpp, Tesseract, PDFium,
+       ONNX) ficam ao lado porque não são embutíveis em single-file. -->
+  <PropertyGroup Condition="'$(PublishSingleFile)' == 'true'">
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>false</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <DebugType>embedded</DebugType>
+    <PublishReadyToRun>false</PublishReadyToRun>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+    <PackageReference Include="ModernWpfUI" Version="0.9.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sigilus.Core\Sigilus.Core.csproj" />
+    <ProjectReference Include="..\Sigilus.Pdf\Sigilus.Pdf.csproj" />
+    <ProjectReference Include="..\Sigilus.Detection\Sigilus.Detection.csproj" />
+    <ProjectReference Include="..\Sigilus.Ocr\Sigilus.Ocr.csproj" />
+    <ProjectReference Include="..\Sigilus.Detection.Onnx\Sigilus.Detection.Onnx.csproj" />
+    <ProjectReference Include="..\Sigilus.Detection.Llm\Sigilus.Detection.Llm.csproj" />
+  </ItemGroup>
+
+</Project>
