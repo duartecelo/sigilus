@@ -298,6 +298,11 @@
                                             Margin="8,0,0,0" Padding="10,6">
                                         <Button.ToolTip>Atualiza a lista após adicionar arquivos .gguf em models/llm/.</Button.ToolTip>
                                     </Button>
+                                    <Button Content="Baixar modelo…" Click="OnLlmDownloadClick"
+                                            Margin="8,0,0,0" Padding="10,6"
+                                            Style="{DynamicResource AccentButtonStyle}">
+                                        <Button.ToolTip>Baixa modelos pela internet (do Hugging Face) — não precisa configurar nada.</Button.ToolTip>
+                                    </Button>
                                 </StackPanel>
                             </StackPanel>
                         </Border>

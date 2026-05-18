@@ -1,0 +1,13 @@
+# Large files and models
+models/
+publish/
+pdfs/
+
+# .NET Build outputs
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo

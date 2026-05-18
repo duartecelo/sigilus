@@ -377,6 +377,33 @@ public partial class MainWindow : Window
 
     private void OnLlmRefreshClick(object sender, RoutedEventArgs e) => RefreshLlmModelList();
 
+    private void OnLlmDownloadClick(object sender, RoutedEventArgs e)
+    {
+        // Resolve diretório destino: prefere models/llm/ ao lado do exe, mesmo
+        // que vazio (cria se precisar).
+        var dest = Path.Combine(AppContext.BaseDirectory, "models", "llm");
+        try
+        {
+            var dlg = new DownloadModelWindow(dest) { Owner = this };
+            var ok = dlg.ShowDialog();
+            // Se baixou algum modelo, atualiza a lista do combo.
+            if (dlg.DownloadedPath is not null)
+            {
+                RefreshLlmModelList();
+                // Auto-seleciona o recém-baixado pra facilitar.
+                if (LlmModelCombo.Items.Contains(dlg.DownloadedPath))
+                    LlmModelCombo.SelectedItem = dlg.DownloadedPath;
+            }
+        }
+        catch (Exception ex)
+        {
+            Sigilus.Ui.Wpf.Diagnostics.AppLog.Error("download-win", "Falha ao abrir janela de download", ex);
+            MessageBox.Show(this,
+                $"Não foi possível abrir a janela de download.\n\nErro: {ex.Message}",
+                "Sigilus", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
     private void RefreshLlmModelList()
     {
         var prev = LlmModelCombo.SelectedItem as string;
