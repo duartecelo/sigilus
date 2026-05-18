@@ -1,5 +1,6 @@
 # Large files and models
-models/
+models/ner-ptbr.onnx
+models/llm/
 publish/
 pdfs/
 
