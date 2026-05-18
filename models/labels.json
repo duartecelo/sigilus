@@ -1,0 +1,15 @@
+[
+  "O",
+  "B-ORGANIZACAO",
+  "I-ORGANIZACAO",
+  "B-PESSOA",
+  "I-PESSOA",
+  "B-TEMPO",
+  "I-TEMPO",
+  "B-LOCAL",
+  "I-LOCAL",
+  "B-LEGISLACAO",
+  "I-LEGISLACAO",
+  "B-JURISPRUDENCIA",
+  "I-JURISPRUDENCIA"
+]
