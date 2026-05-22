@@ -1,0 +1,126 @@
+════════════════════════════════════════════════════════════════════
+                Sigilus 2.0 — Como instalar e usar
+════════════════════════════════════════════════════════════════════
+
+O que é o Sigilus?
+─────────────────────────────────────────────────────────────────────
+Programa para "redigir" documentos jurídicos em PDF: ele apaga (de
+verdade) dados sensíveis como CPF, CNPJ, nomes, endereços, e-mails,
+telefones e troca por valores fictícios consistentes — "Fulano",
+"Beltrana", CPF falso válido, etc. Tudo roda no SEU computador,
+sem mandar nada pra internet.
+
+
+REQUISITOS
+─────────────────────────────────────────────────────────────────────
+• Windows 10 ou 11, 64 bits.
+• ~4 GB de RAM livre se for usar IA inteligente.
+• Internet só na primeira vez (para baixar componentes opcionais).
+
+
+COMO INSTALAR
+─────────────────────────────────────────────────────────────────────
+1. Você recebeu uma pasta chamada "sigilus2" (do Git ou descompactada).
+2. Abra essa pasta no Explorador de Arquivos.
+3. Dê DUPLO CLIQUE no arquivo chamado:
+
+        bootstrap.bat
+
+4. Uma janela preta vai abrir mostrando o progresso. Aguarde até
+   aparecer "Tudo pronto!" (5 a 15 minutos na primeira vez).
+   * Se aparecer um pop-up do Windows pedindo permissão de admin
+     (instalação do .NET), clique em SIM.
+5. Depois que terminar, abra a pasta:
+
+        publish\Sigilus
+
+6. Dê DUPLO CLIQUE em Sigilus.exe para usar o programa.
+
+
+⚠ MUITO IMPORTANTE: NÃO COLOQUE DENTRO DO ONEDRIVE
+─────────────────────────────────────────────────────────────────────
+A pasta do Sigilus precisa ficar em um lugar LOCAL do disco (por
+exemplo: C:\Sigilus ou D:\Sigilus).
+
+NÃO funcione se estiver dentro de:
+  - OneDrive
+  - Google Drive
+  - iCloud Drive
+  - Dropbox
+  - Qualquer pasta sincronizada com a nuvem
+
+Se você abrir o programa de dentro de uma dessas pastas, ele vai
+mostrar um aviso amarelo logo no início.
+
+
+COMO USAR (resumido)
+─────────────────────────────────────────────────────────────────────
+1. Abrir o Sigilus.exe.
+2. Clicar em "Abrir PDF..." (canto superior esquerdo).
+3. Clicar em "Detectar" — o programa marca tudo que achou de
+   sensível com retângulos coloridos.
+4. Revisar os retângulos:
+   • VERMELHO = será redigido/substituído quando você salvar.
+   • LARANJA = só uma sugestão, NÃO será aplicado.
+   Clicar num retângulo alterna entre vermelho e laranja.
+5. Clicar em "Salvar" e escolher onde gravar o PDF redigido.
+
+
+CONFIGURAÇÕES (engrenagem à esquerda)
+─────────────────────────────────────────────────────────────────────
+• TEMA: claro, escuro ou seguindo o Windows.
+
+• PSEUDONIMIZAÇÃO:
+    LIGADO  = substitui pelo nome falso ("Fulano", CPF fictício).
+    DESLIGADO = só põe uma tarja preta em cima.
+
+• IA RÁPIDA (NER):
+    Modelo pequeno (~100 MB) que ajuda a achar nomes próprios.
+    Se a opção aparecer cinza, clique em "Baixar / atualizar NER..."
+    para baixar pela internet.
+
+• IA INTELIGENTE (LLM):
+    Modelo maior (~2 a 5 GB) que pega nomes em qualquer parte
+    do texto. Mais lento, porém muito mais preciso.
+    Clique em "Baixar / gerenciar..." para escolher e baixar
+    um modelo (Gemma 3 é o recomendado).
+
+
+OCR (LEITURA DE TEXTO EM IMAGENS)
+─────────────────────────────────────────────────────────────────────
+O OCR é o que permite ler documentos ESCANEADOS (não digitados).
+Já é instalado automaticamente pelo bootstrap.bat. Se por algum
+motivo não estiver disponível (rodapé escrito "OCR desativado"),
+vá em Configurações → "Baixar / atualizar OCR..."
+
+
+O QUE FAZER SE ALGO DER ERRADO
+─────────────────────────────────────────────────────────────────────
+1. Toda vez que o Sigilus abre, ele grava um arquivo chamado:
+
+        publish\Sigilus\Sigilus-log.txt
+
+   Esse arquivo tem todos os detalhes técnicos do que está
+   acontecendo. Quando algo der errado, ENVIE ESSE ARQUIVO para
+   quem está te ajudando.
+
+2. Os erros mais comuns:
+   • "OneDrive detectado" → mova a pasta para fora do OneDrive.
+   • "Falha ao carregar LLM" → o modelo .gguf pode estar quebrado.
+     Baixe de novo pelo gerenciador.
+   • "OCR desativado" → componente de OCR não foi baixado.
+     Configurações → "Baixar / atualizar OCR...".
+
+
+COMO ATUALIZAR
+─────────────────────────────────────────────────────────────────────
+Quando vier uma versão nova:
+1. Atualize a pasta sigilus2 (git pull ou substituindo os arquivos).
+2. Dê DUPLO CLIQUE em bootstrap.bat de novo.
+3. O programa recompila e fica pronto. Os modelos já baixados
+   continuam onde estavam — não baixa de novo.
+
+
+════════════════════════════════════════════════════════════════════
+Sigilus 2.0 — redação destrutiva e pseudonimização local de PDFs
+════════════════════════════════════════════════════════════════════

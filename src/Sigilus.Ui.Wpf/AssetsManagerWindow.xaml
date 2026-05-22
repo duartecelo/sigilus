@@ -1,0 +1,115 @@
+<Window x:Class="Sigilus.Ui.Wpf.AssetsManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        Title="Gerenciar componentes do Sigilus"
+        Width="720" Height="640"
+        MinWidth="560" MinHeight="500"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="CanResize"
+        ShowInTaskbar="False"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,14">
+            <TextBlock Text="Componentes do Sigilus" FontSize="20" FontWeight="SemiBold"/>
+            <TextBlock TextWrapping="Wrap" Opacity="0.75" Margin="0,4,0,0">
+                Aqui você baixa os componentes que faltam para usar o Sigilus completo:
+                OCR (leitura de páginas escaneadas), IA rápida (detecção de nomes via modelo
+                neural pequeno) e IA inteligente (modelos de linguagem maiores). Tudo roda
+                no seu computador, sem precisar de internet depois do download.
+            </TextBlock>
+        </StackPanel>
+
+        <TabControl Grid.Row="1" x:Name="Pivot" Background="Transparent" BorderThickness="0">
+            <TabItem Header="OCR (Português)">
+                <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                        CornerRadius="6" Padding="4" Margin="0,8,0,0">
+                    <ListBox x:Name="OcrList" BorderThickness="0" Background="Transparent"
+                             SelectionChanged="OnOcrSelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="8,10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding DisplayName}" FontWeight="SemiBold" FontSize="14"/>
+                                        <TextBlock Text=" · " Opacity="0.5"/>
+                                        <TextBlock Text="{Binding SizeHuman}" Opacity="0.7"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Opacity="0.7" Margin="0,2,0,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+            </TabItem>
+
+            <TabItem Header="IA rápida (NER)">
+                <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                        CornerRadius="6" Padding="4" Margin="0,8,0,0">
+                    <ListBox x:Name="NerList" BorderThickness="0" Background="Transparent"
+                             SelectionChanged="OnNerSelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="8,10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding DisplayName}" FontWeight="SemiBold" FontSize="14"/>
+                                        <TextBlock Text=" · " Opacity="0.5"/>
+                                        <TextBlock Text="{Binding SizeHuman}" Opacity="0.7"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Opacity="0.7" Margin="0,2,0,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+            </TabItem>
+
+            <TabItem Header="IA inteligente (LLM)">
+                <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                        CornerRadius="6" Padding="4" Margin="0,8,0,0">
+                    <ListBox x:Name="LlmList" BorderThickness="0" Background="Transparent"
+                             SelectionChanged="OnLlmSelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="8,10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding DisplayName}" FontWeight="SemiBold" FontSize="14"/>
+                                        <TextBlock Text=" · " Opacity="0.5"/>
+                                        <TextBlock Text="{Binding SizeHuman}" Opacity="0.7"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Opacity="0.7" Margin="0,2,0,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+            </TabItem>
+        </TabControl>
+
+        <Border Grid.Row="2" Margin="0,14,0,0" Padding="12,10"
+                Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                CornerRadius="6">
+            <StackPanel>
+                <Grid>
+                    <TextBlock x:Name="ProgressTitle" Text="Selecione um item." FontSize="12"/>
+                    <TextBlock x:Name="ProgressEta" HorizontalAlignment="Right" FontSize="12" Opacity="0.7"/>
+                </Grid>
+                <ProgressBar x:Name="ProgressBar" Minimum="0" Maximum="100" Height="6" Margin="0,6,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,14,0,0">
+            <Button x:Name="CancelButton" Content="Fechar" Click="OnCancelClick" MinWidth="100" Padding="10,6"/>
+            <Button x:Name="DownloadButton" Content="Baixar selecionado" Click="OnDownloadClick"
+                    Style="{DynamicResource AccentButtonStyle}" MinWidth="160" Margin="8,0,0,0"
+                    Padding="10,6" IsEnabled="False"/>
+        </StackPanel>
+    </Grid>
+</Window>

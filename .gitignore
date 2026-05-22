@@ -1,14 +1,38 @@
-# Large files and models
+# ============================================================================
+#  .gitignore do Sigilus 2.0
+#  Tudo que estiver aqui é gerado pelo bootstrap.bat — não precisa versionar.
+# ============================================================================
+
+# Modelos grandes (baixados automaticamente pelo bootstrap.bat ou pela UI)
 models/ner-ptbr.onnx
 models/llm/
-publish/
-pdfs/
 
-# .NET Build outputs
+# OCR (baixado automaticamente pelo bootstrap.bat ou pela UI)
+tessdata/
+
+# Output do build
 [Bb]in/
 [Oo]bj/
+publish/
 
-# Visual Studio
+# Saídas de exemplo / lixo de teste
+pdfs/
+samples/
+
+# Logs do app rodando
+Sigilus-log.txt
+*.partial
+
+# Visual Studio / Rider / VS Code
 .vs/
+.idea/
+.vscode/
 *.user
 *.suo
+*.userprefs
+*.swp
+
+# Sistema operacional
+Thumbs.db
+Desktop.ini
+.DS_Store

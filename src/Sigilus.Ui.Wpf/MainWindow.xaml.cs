@@ -377,29 +377,26 @@ public partial class MainWindow : Window
 
     private void OnLlmRefreshClick(object sender, RoutedEventArgs e) => RefreshLlmModelList();
 
-    private void OnLlmDownloadClick(object sender, RoutedEventArgs e)
+    private void OnOpenAssetsManagerClick(object sender, RoutedEventArgs e)
     {
-        // Resolve diretório destino: prefere models/llm/ ao lado do exe, mesmo
-        // que vazio (cria se precisar).
-        var dest = Path.Combine(AppContext.BaseDirectory, "models", "llm");
         try
         {
-            var dlg = new DownloadModelWindow(dest) { Owner = this };
-            var ok = dlg.ShowDialog();
-            // Se baixou algum modelo, atualiza a lista do combo.
-            if (dlg.DownloadedPath is not null)
+            var dlg = new AssetsManagerWindow(AppContext.BaseDirectory) { Owner = this };
+            dlg.ShowDialog();
+            if (dlg.AnythingDownloaded)
             {
+                // Recarrega status (tessdata, NER model, LLM list).
+                _tessdata = Sigilus.Ocr.TessdataResolver.FindTessdata();
+                UpdateOcrStatus();
+                UpdateNerStatus(canLoad: Sigilus.Detection.Onnx.NerModelResolver.Find() is not null, loaded: _nerProvider is not null);
                 RefreshLlmModelList();
-                // Auto-seleciona o recém-baixado pra facilitar.
-                if (LlmModelCombo.Items.Contains(dlg.DownloadedPath))
-                    LlmModelCombo.SelectedItem = dlg.DownloadedPath;
             }
         }
         catch (Exception ex)
         {
-            Sigilus.Ui.Wpf.Diagnostics.AppLog.Error("download-win", "Falha ao abrir janela de download", ex);
+            Sigilus.Ui.Wpf.Diagnostics.AppLog.Error("assets-win", "Falha ao abrir gerenciador", ex);
             MessageBox.Show(this,
-                $"Não foi possível abrir a janela de download.\n\nErro: {ex.Message}",
+                $"Não foi possível abrir o gerenciador.\n\nErro: {ex.Message}",
                 "Sigilus", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }

@@ -247,6 +247,8 @@
                                                      HorizontalAlignment="Right" VerticalAlignment="Top"
                                                      Toggled="OnNerToggled"/>
                                 </Grid>
+                                <Button Content="Baixar / atualizar NER…" Click="OnOpenAssetsManagerClick"
+                                        Margin="0,12,0,0" Padding="10,6" HorizontalAlignment="Left"/>
                             </StackPanel>
                         </Border>
 
@@ -298,10 +300,10 @@
                                             Margin="8,0,0,0" Padding="10,6">
                                         <Button.ToolTip>Atualiza a lista após adicionar arquivos .gguf em models/llm/.</Button.ToolTip>
                                     </Button>
-                                    <Button Content="Baixar modelo…" Click="OnLlmDownloadClick"
+                                    <Button Content="Baixar / gerenciar…" Click="OnOpenAssetsManagerClick"
                                             Margin="8,0,0,0" Padding="10,6"
                                             Style="{DynamicResource AccentButtonStyle}">
-                                        <Button.ToolTip>Baixa modelos pela internet (do Hugging Face) — não precisa configurar nada.</Button.ToolTip>
+                                        <Button.ToolTip>Abre o gerenciador para baixar OCR, NER e LLMs.</Button.ToolTip>
                                     </Button>
                                 </StackPanel>
                             </StackPanel>
@@ -317,6 +319,8 @@
                                            Text="Verificando..."/>
                                 <TextBlock Opacity="0.5" FontSize="12" Margin="0,8,0,0" TextWrapping="Wrap"
                                            Text="O OCR é ativado automaticamente quando a pasta 'tessdata' (com por.traineddata) está disponível ao lado do executável."/>
+                                <Button Content="Baixar / atualizar OCR…" Click="OnOpenAssetsManagerClick"
+                                        Margin="0,12,0,0" Padding="10,6" HorizontalAlignment="Left"/>
                             </StackPanel>
                         </Border>
 
