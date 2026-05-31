@@ -88,9 +88,45 @@ public static class AppLog
         sb.AppendLine($"64-bit OS:        {Environment.Is64BitOperatingSystem}");
         sb.AppendLine($"64-bit Process:   {Environment.Is64BitProcess}");
         sb.AppendLine($"CPU cores:        {Environment.ProcessorCount}");
+        sb.AppendLine($"CPU arch:         {System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture}");
+        sb.AppendLine($"CPU AVX:          {System.Runtime.Intrinsics.X86.Avx.IsSupported}");
+        sb.AppendLine($"CPU AVX2:         {System.Runtime.Intrinsics.X86.Avx2.IsSupported}");
+        sb.AppendLine($"CPU AVX-512 F:    {System.Runtime.Intrinsics.X86.Avx512F.IsSupported}");
         sb.AppendLine($"Working memory:   {Environment.WorkingSet / 1024 / 1024} MB");
         sb.AppendLine($"GC mem:           {GC.GetTotalMemory(false) / 1024 / 1024} MB");
-        // RAM total via PerformanceCounter exige WMI; melhor evitar dependência extra.
+
+        // RAM total via API nativa do Windows. Essencial para diagnóstico
+        // remoto: o LLM precisa de RAM equivalente ao tamanho do GGUF.
+        try
+        {
+            var ms = new MEMORYSTATUSEX();
+            if (GlobalMemoryStatusEx(ms))
+            {
+                sb.AppendLine($"RAM total:        {ms.ullTotalPhys / 1024 / 1024} MB");
+                sb.AppendLine($"RAM disponível:   {ms.ullAvailPhys / 1024 / 1024} MB");
+            }
+        }
+        catch { /* não-Windows: ignora */ }
+
         return sb.ToString();
+    }
+
+    [System.Runtime.InteropServices.DllImport("kernel32.dll", SetLastError = true)]
+    [return: System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.Bool)]
+    private static extern bool GlobalMemoryStatusEx([System.Runtime.InteropServices.In, System.Runtime.InteropServices.Out] MEMORYSTATUSEX lpBuffer);
+
+    [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential, CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+    private sealed class MEMORYSTATUSEX
+    {
+        public uint dwLength;
+        public uint dwMemoryLoad;
+        public ulong ullTotalPhys;
+        public ulong ullAvailPhys;
+        public ulong ullTotalPageFile;
+        public ulong ullAvailPageFile;
+        public ulong ullTotalVirtual;
+        public ulong ullAvailVirtual;
+        public ulong ullAvailExtendedVirtual;
+        public MEMORYSTATUSEX() { dwLength = (uint)System.Runtime.InteropServices.Marshal.SizeOf(typeof(MEMORYSTATUSEX)); }
     }
 }
