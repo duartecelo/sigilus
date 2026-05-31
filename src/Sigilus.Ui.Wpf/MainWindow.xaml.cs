@@ -323,16 +323,30 @@ public partial class MainWindow : Window
                   "   local fora do OneDrive (ex: C:\\Sigilus\\) e tente de novo.\n"
                 : string.Empty;
 
+            // Quants IQx (imatrix quantization) são mais novos e às vezes não
+            // são suportados pela versão do llama.cpp embutida.
+            var fileName = Path.GetFileName(gguf);
+            var isImatrixQuant = fileName.Contains("IQ2", StringComparison.OrdinalIgnoreCase)
+                              || fileName.Contains("IQ3", StringComparison.OrdinalIgnoreCase)
+                              || fileName.Contains("IQ4", StringComparison.OrdinalIgnoreCase);
+            var quantHint = isImatrixQuant
+                ? "\n⚠ DETECTADO: O modelo usa quantização imatrix (IQ2/IQ3/IQ4).\n" +
+                  "   Essa quantização pode não ser compatível com a versão atual.\n" +
+                  "   SOLUÇÃO: Baixe a variante Q4_K_M do mesmo modelo (botão\n" +
+                  "   'Baixar / gerenciar...' em Configurações).\n"
+                : string.Empty;
+
             var popupText =
                 $"Não foi possível carregar o modelo.\n\n" +
                 $"Arquivo: {Path.GetFileName(gguf)} ({fileInfo.Length / 1024 / 1024} MB)\n" +
                 $"Tipo do erro: {rootType}\n" +
                 $"Mensagem: {rootMsg}\n" +
                 cloudHint +
+                quantHint +
                 $"\nDetalhes técnicos foram gravados em:\n{Sigilus.Ui.Wpf.Diagnostics.AppLog.LogPath}\n\n" +
                 "Causas comuns:\n" +
                 "  • Sigilus dentro de OneDrive/iCloud/Drive (mais comum).\n" +
-                "  • GGUF mais novo que a versão do llama.cpp embutida.\n" +
+                "  • Quantização IQ2/IQ3 não suportada (use Q4_K_M).\n" +
                 "  • Arquivo corrompido ou download incompleto.\n" +
                 "  • RAM insuficiente para o tamanho do modelo.\n" +
                 "  • CPU sem AVX/AVX2 (PCs muito antigos).\n" +

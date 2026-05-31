@@ -28,12 +28,10 @@ public static class LlmModelCatalog
             SizeBytes: 2_489_758_112L,
             Description: "Google Gemma 3. Equilíbrio ótimo de qualidade e velocidade em PT-BR. ~4 GB de RAM em uso."),
 
-        new LlmModelInfo(
-            DisplayName: "Gemma 3 4B IT (compacto, IQ2)",
-            FileName: "google_gemma-3-4b-it-IQ2_M.gguf",
-            Url: "https://huggingface.co/bartowski/google_gemma-3-4b-it-GGUF/resolve/main/google_gemma-3-4b-it-IQ2_M.gguf",
-            SizeBytes: 1_454_572_768L,
-            Description: "Versão menor do Gemma 3 (qualidade ligeiramente inferior, ~2.5 GB de RAM)."),
+        // NOTA: removida a variante IQ2_M do Gemma 3 — a versão do
+        // llama.cpp embutida no LLamaSharp atual não tem suporte ao
+        // quant IQ2 para arquitetura Gemma 3 (falha com
+        // LoadWeightsFailedException no LoadFromFile). Use Q4_K_M.
 
         new LlmModelInfo(
             DisplayName: "Qwen 2.5 7B Instruct (máxima qualidade)",
